@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="DA" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NMR</title>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <!-- FAVICON-->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+</head>
+<body>
+    <main>
+        <h1 id="greeting">VELKOMMEN TIL MEDARBEJDER LOGIN</h1>
+        <div class="loginFormular">
+            <img class="loginPic" src="/img/bigLogoWhite.png" type="image">
+            <form th:action="@{/}" method="post">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" autofocus="autofocus"/>
+
+                <label for="userPassword">Password</label>
+                <input type="password" id="userPassword" name="userPassword"/>
+
+                <button id="loginBtn" type="submit">Log in</button>
+            </form>
+            <p id="wrong" th:if="${invalidSomething}" class="error">Wrong user or password</p>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="DA" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>NMR</title>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <!-- FAVICON-->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+<<!doctype html>
+    <html lang="DA"  xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>NMR</title>
+        <!-- STYLESHEET -->
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    </head>
+<body>
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <a href="/home"><img id="navBarLogo" src="/img/bigLogoWhite.png" alt="#"></a>
+                <li><a href="update.html">Motorhome</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- MAIN -->
+<main>
+    <div class="indhold">
+        <h1>Detaljer</h1>
+        <h4>Motorhome detalijer
+            <tr th:each="motorhome : ${motorhome}">
+                <span th:text="${motorhome.motorhome_id}"></span>
+            </tr>
+        </h4>
+        <br><br>
+        <table>
+            <tr>
+                <th>Motorhome ID</th>
+                <th>Motorhome pris</th>
+                <th>Motorhome nr.plade</th>
+                <th>Motorhome Brand</th>
+                <th>Motorhome Model</th>
+                <th>Motorhome Årgang</th>
+                <th>Motorhome Farve</th>
+                <th>Motorhome Kapacitet</th>
+                <th>Rediger</th>
+            </tr>
+
+            <tr th:each="motorhome: ${motorhomeOverview}">
+                <th th:text="${motorhome.motorhomeId}"></th>
+                <th th:text="${motorhome.pricePerDay}"></th>
+                <th th:text="${motorhome.numberPlate}"></th>
+                <th th:text="${motorhome.brand}"></th>
+                <th th:text="${motorhome.model}"></th>
+                <th th:text="${motorhome.year}"></th>
+                <th th:text="${motorhome.color}"></th>
+                <th th:text="${motorhome.bedding}"></th>
+        </table>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="homeFooter">
+    <p>Mohamad Elhady
+        <br>Nordic Motor Rental
+        <br>Interdisciplinary Exam Project
+        <br>KEA, Computer Science
+        <br>sem2 2020©
+    </p>
+</footer>
+
+</body>

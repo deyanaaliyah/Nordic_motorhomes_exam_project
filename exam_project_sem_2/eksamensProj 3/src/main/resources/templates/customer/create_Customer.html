@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<!-- Language of website parameter-->
+<html lang="DA" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Basic Page Needs -->
+    <!-- ************************************ -->
+    <meta charset="UTF-8">
+    <title>NMR</title>
+
+    <!-- Mobile Specific Metas -->
+    <!-- ************************************ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <!-- ************************************ -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+    <!-- Favicon -->
+    <!-- ************************************ -->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+</head>
+
+<body>
+<!--Navigation -->
+<!-- ************************************ -->
+<!-- HEADER -->
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <a href="/home/"><img id="navBarLogo" src="/img/bigLogoWhite.png"></a>
+                <li><a href="/motorhome">Motorhome</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- Main -->
+<main>
+    <div class="overskrift">
+        <h1>Opret kunde</h1>
+    </div>
+    <!-- Create Customer form -->
+    <div class="info">
+        <form action="/opret-kunde" method="post">
+            <label for="CustId">Id</label>
+            <input th:field="*{newCustomer.customerId}"  id="CustId" name="customerId" type="number" placeholder="Indtast id..." required>
+
+            <label for="CustomerFirstName">Fornavn</label>
+            <input th:field="*{newCustomer.firstName}"  id="CustomerFirstName" name="firstName" type="text" placeholder="Indtast Fornavn..." required>
+
+            <label for="CustomerLastName">Efternavn</label>
+            <input th:field="*{newCustomer.lastName}"  id="CustomerLastName" name="lastName" type="text" placeholder="Indtast Efternavn..." required>
+
+            <label for="CustomerAddress">Adresse</label>
+            <input th:field="*{newCustomer.address}"  id="CustomerAddress" name="address" type="text" placeholder="Indtast Adresse..." required>
+
+            <label for="CustomerDriverLicenseNo">Kørekort Nummer</label>
+            <input th:field="*{newCustomer.driverLicenseNo}"  id="CustomerDriverLicenseNo" name="driverLicenseNo" type="text" placeholder="Indtast Kørekort nummer: DK123456789" required>
+
+            <label for="CustomerCprNo">CPR</label>
+            <input th:field="*{newCustomer.cprNo}"  id="CustomerCprNo" name="cprNo" type="text" maxlength="11" placeholder="Indtast CPR: 012345-6789" required>
+
+         <div class="navigation-buttons">
+            <a href="/kunde"><button id="backBtn" type="button" >Tilbage</button></a>
+            <a href="/kunde-oversigt"><button id="continueBtn" type="submit" onclick="msg()">Videre</button></a>
+         </div>
+        </form>
+    </div>
+</main>
+<!-- POP UP MESSAGE FOR CONFIRMATION -->
+<script>
+    function msg()
+    {
+        alert("Kunden er gemt! \nTryk på 'Videre'");
+    }
+</script>
+<!-- FOOTER -->
+<footer class="homeFooter">
+    <p>Heritier Mugisha
+        <br>Nordic Motor Rental
+        <br>Interdisciplinary Exam Project
+        <br>KEA, Computer Science
+        <br>sem2 2020©
+    </p>
+</footer>
+</body>
+</html>
+

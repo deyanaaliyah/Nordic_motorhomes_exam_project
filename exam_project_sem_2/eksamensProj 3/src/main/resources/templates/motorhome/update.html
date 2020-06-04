@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="DA" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NMR</title>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <!-- FAVICON-->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+
+<body>
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <a href="/home"><img id="navBarLogo" src="/img/bigLogoWhite.png" alt="#"></a>
+                <li><a href="/motorhome">Motorhome</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- MAIN -->
+<main>
+    <div class="info">
+        <h1>Opdater motorhome</h1>
+
+        <div class="createForm">
+            <table>
+                <form th:r="${motorhomeToUpdate}" th:action="@{/opdater-motorhome}" enctype="UTF8" method="post">
+                    <tr>
+                        <label for="motorhome_id">Motorhome ID</label>
+                        <input id="motorhome_id" type="number" th:field="*{motorhomeToUpdate.motorhomeId}" required>
+
+                        <label for="pris">Motorhome Pris</label>
+                        <input id="pris" type="number" th:field="*{motorhomeToUpdate.pricePerDay}" required>
+
+                        <label for="nrp">Motorhome nummerplade </label>
+                        <input id="nrp" type="text" th:field="*{motorhomeToUpdate.numberPlate}" required>
+
+                        <label for="brand">Mærke</label>
+                        <input id="brand" type="text" th:field="*{motorhomeToUpdate.brand}" required>
+
+                        <label for="model">Model</label>
+                        <input id="model" type="text" th:field="*{motorhomeToUpdate.model}" required>
+
+                        <label for="year">Årgang</label>
+                        <input id="year" type="text" th:field="*{motorhomeToUpdate.year}" required>
+
+                        <label for="color">Farve</label>
+                        <input id="color" type="text" th:field="*{motorhomeToUpdate.color}" required>
+
+                        <label for="bedding">Sengepladser</label>
+                        <input id="bedding" type="number" th:field="*{motorhomeToUpdate.bedding}" required>
+
+                        <div class="navigation-buttons">
+                            <a href="/motorhome-detaljer"><button id="continueBtn" type="submit">Videre</button></a>
+                            <button id="backBtn" type="reset" >Fortryd</button>
+                        </div>
+                    </tr>
+                </form>
+            </table>
+        </div>
+    </div>
+</main>
+
+
+<!-- FOOTER -->
+<footer class="#">
+    <p>Mohamad Elhady
+        <br>Nordic Motor Rental
+        <br>Interdisciplinary Exam Project
+        <br>KEA, Computer Science
+        <br>sem2 2020©
+    </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- Language of website parameter-->
+<html lang="DA" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Basic Page Needs -->
+    <!-- ************************************ -->
+    <meta charset="UTF-8">
+    <title>NMR</title>
+
+    <!-- Mobile Specific Metas -->
+    <!-- ************************************ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <!-- ************************************ -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+    <!-- Favicon -->
+    <!-- ************************************ -->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+</head>
+
+<body>
+<!--Navigation -->
+<!-- ************************************ -->
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <a href="/home"><img id="navBarLogo" src="/img/bigLogoWhite.png" alt="#"></a>
+                <li><a href="/motorhome">Motorhome</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!--Create form
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<main>
+    <div class="info">
+        <h2>Opret Motorhome</h2>
+        <form th:action="@{/motorhome-create}" enctype="UTF8" method="post">
+
+            <label for="id">ID</label>
+            <input type="number" id="id" placeholder="Id.." value="NULL"
+                   th:field="*{motorhomeToAdd.motorhomeId}" required>
+
+            <label for="price">pris</label>
+            <input type="number" id="price"  placeholder="pris" value="NULL" min="01" max="100000"
+                   th:field="*{motorhomeToAdd.pricePerDay}" required>
+
+            <label for="nrp">Nummerplade</label>
+            <input type="text" id="nrp" placeholder="Nr.plade.." value="NULL"
+                   th:field="*{motorhomeToAdd.numberPlate}" required>
+
+
+            <label for="brand">Mærke</label>
+            <input type="text" id="brand" placeholder="Mærke.." value="NULL"
+                   th:field="*{motorhomeToAdd.brand}" required>
+
+
+            <label for="model">Model</label>
+            <input type="text" id="model"  placeholder="Model.." value="NULL"
+                   th:field="*{motorhomeToAdd.model}" required>
+
+            <label for="year">Årgang</label>
+            <input type="number" id="year" value="NULL" placeholder="dd/mm/åååå"
+                   th:field="*{motorhomeToAdd.year}" required>
+
+
+            <label for="country">Farve</label>
+            <select id="country" value="NULL"  th:field="*{motorhomeToAdd.color}" required>
+                <option value="SORT">Sort</option>
+                <option value="BLÅ">Blå</option>
+                <option value="HVID">Hvid</option>
+                <option value="GRÅ">Grå</option>
+                <option value="RØD">Rød</option>
+
+            </select>
+
+            <label for="bedding">Sengepladser</label>
+            <input type="number" id="bedding"  placeholder="Sengepladser" value="NULL"
+                   min="01" max="10"
+                   th:field="*{motorhomeToAdd.bedding}"required>
+
+            <div class="navigation-buttons">
+                <a href="/motorhome"><button id="backBtn"  type="button">Tilbage</button></a>
+                <a href="/motorhome-overview"> <button id="continueBtn"  th:method="post" type="submit">Videre</button></a>
+            </div>
+        </form>
+    </div>
+</main>
+<!-- FOOTER -->
+<footer class="homeFooter">
+    <p>Mohamad Elhady
+        <br>Nordic Motor Rental
+        <br>Interdisciplinary Exam Project
+        <br>KEA, Computer Science
+        <br>sem2 2020©
+    </p>
+</footer>
+</body>
+</html>

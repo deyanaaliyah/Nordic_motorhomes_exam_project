@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="DA" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>NMR</title>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <!-- FAVICON-->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="naviBarColor">
+    <div class="container">
+        <nav class="naviBarSize">
+            <ul>
+                <a href="/home"><img id="navBarLogo" src="/img/bigLogoWhite.png"></a>
+                <li><a href="/motorhome">Motorhome</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- MAIN -->
+<main>
+    <div class="renatlDetails">
+        <h1>Detaljer</h1>
+        <h4>Udlejningsdetaljer for
+            <tr th:each="rental : ${rental}">
+                <span th:text="${rental.rental_id}"></span>
+            </tr>
+        </h4>
+        <br><br>
+        <table class="overviewTable">
+            <tr>
+                <th>Udlejnings ID</th>
+                <th>Kunde ID</th>
+                <th>Motorhome ID</th>
+                <th>Dato for udlejning</th>
+                <th>Dato for returnering</th>
+                <th>Total</th>
+                <th>Valuta</th>
+                <th>Betalt</th>
+                <th>Bemærkninger</th>
+            </tr>
+            <tr th:each="rental : ${rental}">
+                <th th:text="${rental.rental_id}"></th>
+                <th th:text="${rental.customer_id}"></th>
+                <th th:text="${rental.motorhome_id}"></th>
+                <th th:text="${rental.date_start}"></th>
+                <th th:text="${rental.date_end}"></th>
+                <th th:text="${rental.total}"></th>
+                <th th:text="${rental.valuta}"></th>
+                <th th:text="${rental.paid}"></th>
+                <th th:text="${rental.comments}"></th>
+            </tr>
+        </table>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="homeFooter">
+    <p>Dejan Alija
+        <br>Nordic Motor Rental
+        <br>Interdisciplinary Exam Project
+        <br>KEA, Computer Science
+        <br>sem2 2020©
+    </p>
+</footer>
+
+</body>

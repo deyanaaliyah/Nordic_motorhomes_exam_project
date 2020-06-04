@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="DA" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NMR</title>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <!-- FAVICON-->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+</head>
+<body>
+<!-- HEADER -->
+<header class="naviBarColor">
+    <div class="container">
+        <nav class="naviBarSize">
+            <ul>
+                <a href="/home"><img id="navBarLogo" src="/img/bigLogoWhite.png"></a>
+                <li><a href="/motorhome">Motorhome</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- Main -->
+<main>
+<div class="createFormulaBox">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Fornavn</th>
+            <th>Efternavn</th>
+            <th>Adresse</th>
+            <th>Kørekort Nummer</th>
+            <th>CPR</th>
+        </tr>
+        <tr th:each="c : ${customer}">
+            <th th:text="${c.customerId}"></th>
+            <th th:text="${c.firstName}"></th>
+            <th th:text="${c.lastName}"></th>
+            <th th:text="${c.address}"></th>
+            <th th:text="${c.driverLicenseNo}"></th>
+            <th th:text="${c.cprNo}"></th>
+        </tr>
+    </table>
+</div>
+   
+</main>
+
+
+
+</body>
+</html>
+

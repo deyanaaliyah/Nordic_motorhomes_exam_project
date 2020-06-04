@@ -1,0 +1,84 @@
+<!doctype html>
+<!-- Language of website parameter-->
+<html lang="DA" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Basic Page Needs -->
+    <!-- ************************************ -->
+    <meta charset="UTF-8">
+    <title>NMR</title>
+
+    <!-- Mobile Specific Metas -->
+    <!-- ************************************ -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <!-- ************************************ -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <!-- FAVICON-->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+</head>
+<body>
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <a href="/home"><img id="navBarLogo" src="/img/bigLogoWhite.png" alt="#"></a>
+                <li><a href="motorhome">Motorhome</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- Main -->
+<main>
+    <div class="overskrift">
+        <h1> Oversigt over Motorhome</h1>
+    </div>
+    <div>
+        <table class="overviewTable">
+            <tr>
+                <th>Motorhome ID</th>
+                <th>Motorhome pris</th>
+                <th>Motorhome nr.plade</th>
+                <th>Motorhome Brand</th>
+                <th>Motorhome Model</th>
+                <th>Motorhome Årgang</th>
+                <th>Motorhome Farve</th>
+                <th>Motorhome Kapacitet</th>
+                <th id="edit">Rediger</th>
+            </tr>
+
+            <tr th:each="mh : ${motorhomeOverview}">
+                <th th:text="${mh.motorhomeId}"></th>
+                <th th:text="${mh.pricePerDay}"></th>
+                <th th:text="${mh.numberPlate}"></th>
+                <th th:text="${mh.brand}"></th>
+                <th th:text="${mh.model}"></th>
+                <th th:text="${mh.year}"></th>
+                <th th:text="${mh.color}"></th>
+                <th th:text="${mh.bedding}"></th>
+            <td id="test">
+                        <a th:href="@{/motorhome-detaljer(id=${mh.motorhomeId})}"><button class="TabledetailsBtn detailsBtn">Detaljer</button></a>
+                        <a th:href="@{/opdater-motorhome(id=${mh.motorhomeId})}"><button class="TabledetailsBtn updateBtn">Rediger</button></a>
+                        <a th:href="@{/slet-motorhome(id=${mh.motorhomeId})}"><button class="TabledetailsBtn deleteBtn">Slet</button></a>
+                     </td>
+
+            </tr>
+        </table>
+    </div>
+</main>
+<!-- FOOTER -->
+<footer class="#">
+    <p>Mohamad Elhady
+        <br>Nordic Motor Rental
+        <br>Interdisciplinary Exam Project
+        <br>KEA, Computer Science
+        <br>sem2 2020©
+    </p>
+</footer>
+</body>
+</html>

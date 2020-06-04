@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- Language of website parameter-->
+<html lang="DA" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Basic Page Needs -->
+    <!-- ************************************ -->
+    <meta charset="UTF-8">
+    <title>NMR</title>
+
+    <!-- Mobile Specific Metas -->
+    <!-- ************************************ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <!-- ************************************ -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+    <!-- Favicon -->
+    <!-- ************************************ -->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+</head>
+
+<body>
+<!--Navigation -->
+<!-- ************************************ -->
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <a href="/home"><img id="navBarLogo" src="/img/bigLogoWhite.png"></a>
+                <li><a href="/motorhome">Motorhome</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- Main -->
+<main>
+    <div class="overskrift">
+        <h1>Kunde oversigt</h1>
+    </div>
+    <div>
+        <table class="overviewTable">
+            <tr>
+                <th>ID</th>
+                <th>Fornavn</th>
+                <th>Efternavn</th>
+                <th>Adresse</th>
+                <th>Håndter</th>
+            </tr>
+            <tr th:each="c : ${customer}">
+                <th th:text="${c.customerId}"></th>
+                <th th:text="${c.firstName}"></th>
+                <th th:text="${c.lastName}"></th>
+                <th th:text="${c.address}"></th>
+                <td>
+                    <a th:href="@{/kunde-detaljer(Id=${c.customerId})}"><button class="TabledetailsBtn detailsBtn">Detaljer</button></a>
+                    <a th:href="@{/rediger-kunde(Id=${c.customerId})}"><button class="TabledetailsBtn" id="CupdateBtn">Rediger</button></a>
+                    <a th:href="@{/slet-kunde(Id=${c.customerId})}"><button class="TabledetailsBtn" id="CdeleteBtn">Slet</button></a>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</main>
+<!-- FOOTER -->
+<footer class="homeFooter">
+    <p>Heritier Mugisha
+        <br>Nordic Motor Rental
+        <br>Interdisciplinary Exam Project
+        <br>KEA, Computer Science
+        <br>sem2 2020©
+    </p>
+</footer>
+</body>
+</html>
+

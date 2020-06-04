@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>NMR</title>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <!-- FAVICON-->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+</head>
+<body>
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <a href="/home"><img id="navBarLogo" src="/img/bigLogoWhite.png"></a>
+                <li><a href="/">Home</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- Main -->
+<main>
+    <div class="info">
+        <h1>Opdater medarbejder</h1>
+        <div class="createForm">
+            <table>
+                <form th:e="${employeeToUpdate}" th:action="@{/opdater-medarbejder}" enctype="UTF8" method="post">
+                <tr>
+                    <label for="employee_id">Medarbejder ID</label>
+                    <input id="employee_id" type="number" th:field="*{employeeToUpdate.employeeId}" required>
+
+                    <label for="department">Stilling</label>
+                    <input id="department" type="text" th:field="*{employeeToUpdate.department}" required>
+
+                    <label for="employee_Firstname">Medarbejder fornavn</label>
+                    <input id="employee_Firstname" type="text" th:field="*{employeeToUpdate.firstName}" required>
+
+                    <label for="employee_Lastname">Medarbejder efternavn</label>
+                    <input id="employee_Lastname" type="text" th:field="*{employeeToUpdate.lastName}" required>
+
+                    <label for="Adress">Adresse</label>
+                    <input id="Adress" type="text" th:field="*{employeeToUpdate.adress}" required>
+
+                    <label for="cpr-Nr">cprNr</label>
+                    <input id="cpr-Nr" type="text" th:field="*{employeeToUpdate.cprNr}" required>
+
+                    <label for="password">Kodeord</label>
+                    <input id="password" type="text" th:field="*{employeeToUpdate.password}" required>
+
+                    <div class="navigation-buttons">
+                    <button id="continueBtn" type="submit" >Videre</button>
+                    <button id="backBtn" type="reset" >Reset</button>
+                </div>
+                </tr>
+                </form>
+            </table>
+         </div>
+    </div>
+</main>
+<!-- FOOTER -->
+<footer class="homeFooter">
+    <p>Oliver Schoenemann Bramsen
+        <br>Nordic Motor Rental
+        <br>Interdisciplinary Exam Project
+        <br>KEA, Computer Science
+        <br>sem2 2020©
+    </p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="DA" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>NMR</title>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+    <!-- FAVICON-->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+
+</head>
+<body>
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <a href="/home"><img id="navBarLogo" src="/img/bigLogoWhite.png"></a>
+                <li><a href="/motorhome">Motorhome</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="overskrift">
+        <h1>Medarbejdere oversigt</h1>
+    </div>
+    <div>
+        <table class="overviewTable">
+    <tr>
+        <th>ID</th>
+        <th>Stilling</th>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Adresse</th>
+        <th>Cpr-Nr</th>
+        <th>Rediger</th>
+    </tr>
+    <tr th:each="e : ${employee}">
+        <th th:text="${e.employeeId}"></th>
+        <th th:text="${e.department}"></th>
+        <th th:text="${e.firstName}"></th>
+        <th th:text="${e.lastName}"></th>
+        <th th:text="${e.adress}"></th>
+        <th th:text="${e.cprNr}"></th>
+    <td>
+        <a th:href="@{/medarbejder-detaljer(id=${e.employeeId})}"><button class="TabledetailsBtn detailsBtn">Detaljer</button></a>
+        <a th:href="@{/opdater-medarbejder(id=${e.employeeId})}"><button class="TabledetailsBtn updateBtn">Rediger</button></a>
+        <a th:href="@{/slet-medarbejder(id=${e.employeeId})}"><button class="TabledetailsBtn deleteBtn">Slet</button></a>
+    </td>
+    </tr>
+</table>
+    </div>
+<!-- FOOTER -->
+<footer class="homeFooter">
+    <p>Oliver Schoenemann Bramsen
+        <br>Nordic Motor Rental
+        <br>Interdisciplinary Exam Project
+        <br>KEA, Computer Science
+        <br>sem2 2020©
+    </p>
+</footer>
+
+</main>
+</body>
+</html>

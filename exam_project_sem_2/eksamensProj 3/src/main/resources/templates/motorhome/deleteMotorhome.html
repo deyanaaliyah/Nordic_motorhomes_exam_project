@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="DA"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NMR</title>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <a href="/home"><img id="navBarLogo" src="/img/bigLogoWhite.png" alt="#"></a>
+                <li><a href="/motorhome">Motorhome</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- ALERT MESSAGE TO DELETE -->
+<main>
+    <div class="info">
+        <tr th:each="mh : ${motorhome}">
+            <h3>
+                Er du sikker på, at motorhome
+                <span class="alert" th:text="${motorhome.motorhomeId}"></span>
+                <span class="alert"> skal slettes?</span>
+            </h3>
+            <span>
+            <div class="navigation-buttons">
+            <a th:href="@{/slet-motorhome-successfuldt(id=${motorhome.motorhomeId})}"><button class="button" id="continueBtn">Slet</button></a>
+            <a href="/motorhome-overview"><button class="button" id="backBtn">Tilbage</button></a>
+            </div>
+            </span>
+        </tr>
+    </div>
+</main>
+<!-- FOOTER -->
+<footer class="homeFooter">
+    <p>Mohamad Elhady
+        <br>Nordic Motor Rental
+        <br>Interdisciplinary Exam Project
+        <br>KEA, Computer Science
+        <br>sem2 2020©
+    </p>
+</footer>
+</body>
+</html>

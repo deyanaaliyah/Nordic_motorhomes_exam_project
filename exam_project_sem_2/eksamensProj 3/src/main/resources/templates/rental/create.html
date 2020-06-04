@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="DA" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>NMR</title>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <!-- FAVICON-->
+    <link rel="icon" href="/img/fav_icons.png" type="image">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="naviBarColor">
+    <div class="container">
+        <nav class="naviBarSize">
+            <ul>
+                <a href="/home"><img id="navBarLogo" src="/img/bigLogoWhite.png"></a>
+                <li><a href="/motorhome">Motorhome</a></li>
+                <li><a href="/medarbejder">Medarbejder</a></li>
+                <li><a href="/kunde">Kunde</a></li>
+                <li><a href="/udlejning">Udlejning</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- MAIN -->
+<main>
+    <div class="info">
+        <h1>Opret udlejning</h1>
+        <div>
+            <table>
+                <form th:r="${rentalToBeAdded}" th:action="@{/opret-udlejning}" enctype="UTF8" method="post">
+                    <tr>
+                        <label for="rid">Udlejnings ID</label>
+                        <input id="rid" placeholder="Indtast udlejnings ID..." type="number" value="NULL"
+                               th:field="*{rentalToBeAdded.rental_id}" required>
+
+                        <br>
+                        <label for="cid">Kunde ID</label>
+                        <input id="cid" placeholder="Indtast kunde ID..." type="number" value="NULL"
+                               th:field="*{rentalToBeAdded.customer_id}" required>
+
+                        <br>
+                        <label for="mid">Motorhome ID</label>
+                        <select id="mid" multiple th:field="*{rentalToBeAdded.motorhome_id}" required>
+                            <option value="101">Marco polo (2 pladser)</option>
+                            <option value="102">Marco polo (3 pladser)</option>
+                            <option value="103">Marco polo (4 pladser)</option>
+                            <option value="104">Marco polo (5 pladser)</option>
+
+                            <option value="201">Marco polo (3 pladser)</option>
+                            <option value="202">Marco polo (3 pladser)</option>
+                            <option value="203">Marco polo (4 pladser)</option>
+                            <option value="204">Marco polo (6 pladser)</option>
+
+                            <option value="301">Tymer (6 pladser)</option>
+                            <option value="302">Tymer (4 pladser)</option>
+                            <option value="303">Tymer (6 pladser)</option>
+                            <option value="304">Tymer (2 pladser)</option>
+
+                            <option value="401">Tymer (6 pladser)</option>
+                            <option value="402">Tymer (3 pladser)</option>
+                            <option value="403">Tymer (4 pladser)</option>
+                            <option value="404">Tymer (1 pladser)</option>
+
+                            <option value="501">Marco polo (5 pladser)</option>
+                            <option value="502">Marco polo (4 pladser)</option>
+                            <option value="503">Marco polo (4 pladser)</option>
+                            <option value="504">Marco polo (5 pladser)</option>
+
+                            <option value="601">Tymer (2 pladser)</option>
+                            <option value="602">Tymer (4 pladser)</option>
+                            <option value="603">Tymer (5 pladser)</option>
+                            <option value="604">Tymer (6 pladser)</option>
+
+                            <option value="601">Marco polo (3 pladser)</option>
+                            <option value="602">Marco polo (5 pladser)</option>
+                            <option value="603">Marco polo (6 pladser)</option>
+                            <option value="604">Marco polo (4 pladser)</option>
+
+                            <option value="601">Tymer (3 pladser)</option>
+                            <option value="602">Tymer (4 pladser)</option>
+                            <option value="603">Tymer (5 pladser)</option>
+                            <option value="604">Tymer (6 pladser)</option>
+                        </select>
+
+                        <br>
+                        <label for="eid">Medarbejder ID</label>
+                        <input id="eid" placeholder="Indtast medarbejder ID..." type="number" value="NULL"
+                               th:field="*{rentalToBeAdded.employee_id}" required>
+
+                        <br>
+                        <label for="dates">Dato for udlejning</label>
+                        <input id="dates" type="date" value="NULL"
+                               th:field="*{rentalToBeAdded.date_start}" required>
+
+                        <br>
+                        <label for="datee">Dato for returnering</label>
+                        <input id="datee" type="date" value="NULL"
+                               th:field="*{rentalToBeAdded.date_end}" required>
+
+                        <br>
+                        <label for="valuta">valuta</label>
+                        <select id="valuta" multiple th:field="*{rentalToBeAdded.valuta}" required>
+                            <option value="dkk">DKK</option>
+                            <option value="euro">EURO</option>
+                            <option value="transaktion">Transaktion</option>
+                        </select>
+
+                        <br>
+                        <label for="total">Total (pris)</label>
+                        <input id="total" placeholder="Indtast total pris..." type="number" value="NULL"
+                               th:field="*{rentalToBeAdded.total}" required>
+
+                        <br>
+                        <label for="paid">Betaling</label>
+                        <select id="paid" multiple th:field="*{rentalToBeAdded.paid}" required>
+                            <option value="true">Betalt</option>
+                            <option value="false">Ikke betalt</option>
+                        </select>
+
+                        <br>
+                        <label for="comments">Ekstra udstyr (valgfrit)</label>
+                        <select id="comments" multiple th:field="*{rentalToBeAdded.comments}" required>
+                            <option value="null">Intet ekstra udstyr</option>
+                            <option value="199,- (cykelophlæng)">Cykelophæng (199,-)</option>
+                            <option value="99,- (linen)">linen (99,-)</option>
+                            <option value="99,- (børnesæde)">børne sæde(99,-)</option>
+                            <option value="149,- (picnic bord+stol)">picnic bord og stole(149,-)</option>
+                        </select>
+
+                        <br>
+                        <!-- SUBMIT BUTTONS -->
+                        <div class="navigation-buttons">
+                            <a href="/udlejning"><button id="backBtn" class="bBtn" type="button">Tilbage</button></a>
+                            <button id="continueBtn" class="continueBtn" type="submit">Videre</button>
+                        </div>
+                    </tr>
+                </form>
+            </table>
+        </div>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="homeFooter">
+    <p>Dejan Alija
+        <br>Nordic Motor Rental
+        <br>Interdisciplinary Exam Project
+        <br>KEA, Computer Science
+        <br>sem2 2020©
+    </p>
+</footer>
+</body>
