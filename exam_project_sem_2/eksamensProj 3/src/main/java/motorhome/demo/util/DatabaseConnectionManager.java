@@ -23,7 +23,7 @@ public class DatabaseConnectionManager {
 
         try {
             //I så fald, hent data fra application.properties
-            FileInputStream propFile = new FileInputStream("src/main/resources/application.properties");
+            FileInputStream propFile = new FileInputStream("src/main/resources/application.properties"); //change path if error
             prop.load(propFile);
             //Denne "user" er lig med denne "user" ...
             user = prop.getProperty("db.user");
