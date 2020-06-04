@@ -15,6 +15,8 @@ Requirements:
 
 #2.1 The file is under "resources". Change the username and password for your database.
 
+#2.2 And if you get an error, then make sure you DatabaseConnectionManager class has the correct path for the application.properties file. 
+
 #3 Run project in your editor and open "localhost:8080" on your browser. And remember to login with username+password being = "admin".
 
 
